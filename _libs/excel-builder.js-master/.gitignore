@@ -1,0 +1,6 @@
+buildtools/index.js
+/nbproject/private/
+.DS_Store
+build
+node_modules
+jszip.js

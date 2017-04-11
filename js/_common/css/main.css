@@ -1,0 +1,256 @@
+/**
+* from adminlte- font setting
+* 
+* 
+*/
+
+@media (max-width: 300px) {
+    html { font-size: 50%; }
+}
+
+@media (min-width: 500px) {
+    html { font-size: 70%; }
+}
+
+@media (min-width: 700px) {
+    html { font-size: 90%; }
+}
+
+@media (min-width: 1200px) {
+    html { font-size: 100%; }
+}
+
+.bgcolor1{
+    background-color: #82abb0; 
+}
+
+.bgcolor2{
+    background-color: #ecf0f5; 
+}
+
+body{
+    overflow: scroll;
+    margin:-0px;
+    padding:0px;
+    overflow-x: hidden;
+    background-attachment: fixed;
+    background-image: url(../images/gplay.png);
+}
+
+.loading{
+    xfont-style: italic;
+    font-size: 15pt;
+    xcolor: green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.view-title{
+    text-align: center;
+    margin: 1px;
+    font-size: 20pt;
+}
+
+
+.hot-toolbar{
+    width: auto; 
+    margin-bottom: 5px;
+}
+
+.child-control{
+    cursor:pointer; 
+}
+
+
+/*hack for hot inside datatables*/
+
+table.table-bordered.dataTable td:last-child{
+    border-width: 1px;    
+}
+table.table-bordered.dataTable tbody th, 
+table.table-bordered.dataTable tbody td{
+    border-width: 1px;    
+
+}
+
+.btn-margin{
+    margin-left: 3px;
+}
+
+.toast {
+    opacity: 1 !important;
+}
+
+
+tr.group,
+tr.group:hover {
+    background-color: #ddd !important;
+}
+
+#top-loading-anim{
+    margin: 0 auto; 
+    position: fixed; 
+    top:0px; 
+    z-index: 5000; 
+    width:100px;
+    left:0; 
+    right:0;         
+}
+
+.user-image-fix{
+    xfloat: none !important;
+    width: auto !important;
+    xheight: 20px !important;
+    margin-top: 2px !important;
+}
+
+.table-bordered > thead > tr > th, 
+.table-bordered > tbody > tr > th, 
+.table-bordered > tfoot > tr > th, 
+.table-bordered > thead > tr > td, 
+.table-bordered > tbody > tr > td, 
+.table-bordered > tfoot > tr > td{
+    border: 1px solid #DDD8D8;
+}
+
+.logo:hover{
+}
+
+.skin-blue .sidebar-menu > li.header{
+    color: white;
+}
+.skin-purple .sidebar-menu > li.header{
+    color: white;
+}
+
+.skin-blue .main-header .logo{
+    background: rgba(0,0,0,0) !important;
+    background-image: url(../images/gplay.png) !important;
+}
+.skin-purple .main-header .logo{
+    background: rgba(0,0,0,0) !important;
+    background-image: url(../images/gplay.png) !important;
+}
+
+.skin-blue .main-header .navbar{
+    background: rgba(0,0,0,0) !important;
+}
+.skin-purple .main-header .navbar{
+    background: rgba(0,0,0,0) !important;
+}
+
+.skin-blue .main-sidebar, .skin-blue .left-side{
+    background-image: url(../images/gplay.png);
+}
+.skin-purple .main-sidebar, .skin-purple .left-side{
+    background-image: url(../images/gplay.png);
+}
+
+.skin-blue .main-header{
+    background-color: #3c8dbc;
+    background-image: url(../images/subtle-grey.png);
+} 
+.skin-purple .main-header{
+    background-color: #605ca8;
+    background-image: url(../images/subtle-grey.png);
+} 
+
+.dropdown-menu{
+    width: 300px ! important;
+}
+
+.shadow-box{
+    box-shadow: 10px 10px 5px #888888 !important;
+    border: 1px solid #ccc !important;
+    right: 1px;
+}
+
+.text-with-shadow{
+    text-shadow: 2px 2px #000000;            
+}
+
+.content-wrapper{
+    background-color: rgba(0,0,0,0)!important;
+}
+
+.main-footer{
+    border-top: 1px solid black !important;
+    padding: 5px !important;
+}
+
+
+.dtable-common-footer{
+    font-weight: normal;
+    font-size: .8em;
+}
+
+
+div.dataTables_wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+table.dataTable.nowrap tfoot th{
+    white-space: normal !important;
+}    
+
+.table-condensed tbody tr td{
+    padding: 3px;
+}
+
+.table-condensed tfoot tr th{
+    padding: 0px;
+}
+
+hr{
+    margin: 5px;
+    border: 1px solid #dddddd;
+}
+
+.dtable1-fix{
+    background-color: #eeeeee;
+    font-size:0.9em;
+    xpadding: 0px !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+
+}
+
+table.table-bordered.dataTable{
+    border-collapse: collapse !important;
+}
+
+.dtable-foot-fix{
+    height: 35px;
+}
+
+.icon-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle;
+}
+.icon-stack-1x,
+.icon-stack-2x,
+.icon-stack-3x {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.icon-stack-1x {
+    line-height: inherit;
+}
+.icon-stack-2x {
+    font-size: 1.5em;
+}
+.icon-stack-3x {
+    font-size: 2em;
+}
+
+.sidebar-menu > li > a{
+    padding: 5px 5px 9px 5px !important; 
+}
