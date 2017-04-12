@@ -43,7 +43,7 @@ $pageInfo = array(
             _SELF.hot = null;
 
             var hot_options = {
-                colHeaders: ['id', 'Nama', 'Urut', 'created'],
+                colHeaders: ['id', 'Nama', 'Urut'],
                 colWidths: [50, 300, 100, 200, 200, 200,
                     100, 100, 100, 100, 100
                 ],
@@ -58,10 +58,6 @@ $pageInfo = array(
                     }, {
                         renderer: htmlRenderer1,
                         nobreak: 1,
-                    }, {
-                        renderer: htmlRenderer1,
-                        nobreak: 1,
-                        readOnly: 1,
                     }, ],
                 beforeRemoveRow: function (index, amount) {
                     _SELF.hot.on_before_remove_row(index, amount);
@@ -115,11 +111,7 @@ $pageInfo = array(
                             row = [];
                             row[0] = parseInt(res.data[i].id);
                             row[1] = res.data[i].name;
-                            row[2] = res.data[i].keyword;
-                            row[3] = res.data[i].startFind;
-                            row[4] = res.data[i].endFind;
-                            row[5] = UTCtoJakarta(res.data[i].created);
-
+                            row[2] = res.data[i].order_;
                             data[i] = row;
                         }
                         return data;

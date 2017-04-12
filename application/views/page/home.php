@@ -13,7 +13,7 @@
 
     <div style="padding: 10px; max-width: 400px; margin: 0 auto">
         <div style="padding-top: 5px; padding-bottom: 5px">
-            <button class="btn btn-primary btn-block">Tutorial Membatik</button>
+            <a class="btn btn-primary btn-block" href="#/page/cat/Kategori Artikel">Tutorial Membatik</a>
         </div>
         <div style="padding-top: 5px; padding-bottom: 5px">
             <a class="btn btn-primary btn-block" href="geo:-7.0959244,112.3218776,16?z=12">Info Lokasi</a>

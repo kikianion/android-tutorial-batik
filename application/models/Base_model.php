@@ -50,7 +50,7 @@ abstract class Base_model extends \CI_Model
     {
         $this->load->database();
         $this->load->dbforge();
-        $this->dbforge->drop_table(get_class($this), TRUE);
+        $this->dbforge->drop_table($this->getTableName(), TRUE);
     }
 
     function createTable()
@@ -68,33 +68,37 @@ abstract class Base_model extends \CI_Model
             $prop = $properties[$i];
             $this->dbforge->add_field($prop->name . " " . $prop->colAttribute);
         }
-        $this->dbforge->create_table(get_class($this));
+        $this->dbforge->create_table($this->getTableName());
 
         return $properties;
     }
 
     function all()
     {
-        $tableName = get_class($this);
         $this->load->database();
-        if (!$this->db->table_exists(strtolower(get_class($this)))) {
+        if (!$this->db->table_exists($this->getTableName())) {
             $this->createTable();
         }
-        $query = $this->db->query("select * from " . get_class($this));
+        $query = $this->db->query("select * from " . $this->getTableName());
 
         $res['result'] = 'ok';
         $res['data'] = $query->result();
         return $res;
     }
 
+    function getTableName(){
+        return strtolower(get_class($this));
+
+    }
     function allObj($whereClause = "")
     {
-        $tableName = get_class($this);
         $this->load->database();
-        if (!$this->db->table_exists(get_class($this))) {
+        if (!$this->db->table_exists($this->getTableName())) {
             $this->createTable();
         }
-        $query = $this->db->query("select * from " . get_class($this) . " " . $whereClause);
+        $s="select * from " . $this->getTableName() . " " . $whereClause;
+        $query = $this->db->query($s);
+        $res1=$query->result();
         return $query->result();
     }
 
@@ -107,12 +111,11 @@ abstract class Base_model extends \CI_Model
     function getObjByWhereClause($whereClause)
     {
         $res = null;
-        $tableName = get_class($this);
         $this->load->database();
-        if (!$this->db->table_exists(get_class($this))) {
+        if (!$this->db->table_exists($this->getTableName())) {
             $this->createTable();
         }
-        $query = $this->db->query("select * from " . get_class($this) . " where " . $whereClause);
+        $query = $this->db->query("select * from " . $this->getTableName() . " where " . $whereClause);
         $rs = $query->result();
         if (count($rs) > 0) {
             $className = get_class($this);
@@ -163,7 +166,7 @@ abstract class Base_model extends \CI_Model
 //            }
 
             if (count($ids) > 0) {
-                $tableName = get_class($this);
+                $tableName = $this->getTableName();
                 $this->load->database();
                 for ($i = 0; $i < count($ids); $i++) {
                     $query = $this->db->query("delete from $tableName WHERE id=? ", array($ids[$i]));
@@ -187,10 +190,10 @@ abstract class Base_model extends \CI_Model
     {
         $res['result'] = 'error';
 
-        $tableName = get_class($this);
+        $tableName = $this->getTableName();
         $this->load->database();
 
-        if (!$this->db->table_exists( strtolower(get_class($this)))) {
+        if (!$this->db->table_exists( $this->getTableName())) {
             $this->createTable();
         }
 
@@ -243,7 +246,7 @@ abstract class Base_model extends \CI_Model
                     }
                 }
 
-                $query = $this->db->query("select id from " . get_class($this) . " where id =? limit 1", array($rowId));
+                $query = $this->db->query("select id from " . $this->getTableName() . " where id =? limit 1", array($rowId));
 //                $stmt = $pdoc->prepare("SELECT id FROM $table WHERE id =:id LIMIT 1");
 //                $stmt->execute(array(
 //                    'id' => $rowId
@@ -299,10 +302,10 @@ abstract class Base_model extends \CI_Model
 
     function saveObj()
     {
-        $tableName = get_class($this);
+        $tableName = $this->getTableName();
         $this->load->database();
 
-        if (!$this->db->table_exists(get_class($this))) {
+        if (!$this->db->table_exists($this->getTableName())) {
             $this->createTable();
         }
 

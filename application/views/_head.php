@@ -16,7 +16,7 @@
     <script src="_libs/jquery/jquery-1.10.2.min.js"></script>
 
 
-    <!--<link href="_libs/jquery/css/ui-lightness/jquery-ui-1.8.22.custom.css" rel="stylesheet">-->
+    <link href="_libs/jquery/css/ui-lightness/jquery-ui-1.8.22.custom.css" rel="stylesheet">
     <link href="_libs/bootstrap/css/bootstrap.css" rel="stylesheet"/>
     <script src="_libs/bootstrap/js/bootstrap.min.js"></script>
 
@@ -99,6 +99,11 @@
     <script type="text/javascript" src="js/app.js"></script>
 
     <script type="text/javascript" src="_libs/alasql-0.2/alasql.min.js"></script>
+
+    <script type="text/javascript" src="_libs/tinymce/js/tinymce/tinymce.js"></script>
+
+    <script type="text/javascript" src="_libs/hot-plugins/plugin-handsontable-select2.js"></script>
+    <script type="text/javascript" src="_libs/hot-plugins/plugin-handsontable-tinymce.js"></script>
 
 </head>
 <body class="skin-purple-light sidebar-mini">
