@@ -4,6 +4,7 @@
 
 //settings
 var outDateFormat = 'YYYY-MM-DD';
+var pageHistory=[];
 
 //ng-app
 var ngApp = angular.module('aneon-manager', ['ngRoute', 'ngAnimate', 'ngSanitize']);
@@ -11,11 +12,9 @@ var ngApp = angular.module('aneon-manager', ['ngRoute', 'ngAnimate', 'ngSanitize
 // common
 function resolveFunc($q, $rootScope, $location) {
     var defer = $q.defer();
-    $("#ngview").html('<section class="content-header"><h1>' +
-        'Loading...<small></small></h1>' +
-        '<ol class="breadcrumb">' +
-        '<li><a href="#"><i class="fa fa-dashboard"></i></a></li>' +
-        '<li class="active"></li></ol></section> ');
+    $("#ngview").html('<section class="content-header">' +
+        '<div style="width: 100px; margin: 0 auto; text-align: center"><i class="fa fa-4x fa-refresh fa-spin"></div></i>'
+    );
     defer.resolve();
     return defer.promise;
 }
@@ -27,14 +26,31 @@ function reloadIfNotAuth() {
     }
 }
 
+
+var isBackBtn=false;
 ngApp.config(function($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider.when('/page/:path_module/:title', {
         templateUrl: function(params) {
             document.title = params.title+ " ";
-
+            if(!isBackBtn) {
+                pageHistory.push({"path_module": params.path_module, "title": params.title});
+            }
+            isBackBtn=false;
             return "page/" + params.path_module + "?r=" + Math.random();
         },
         controller: 'modController',
+        resolve: {
+            app: function($q, $rootScope, $location) {
+                return resolveFunc($q, $rootScope, $location);
+            }
+        }
+    }).when('/pageBack', {
+        templateUrl: function(params) {
+            if(pageHistory.length>0) {
+                return "page/blank";
+            }
+        },
+        controller: 'historyController',
         resolve: {
             app: function($q, $rootScope, $location) {
                 return resolveFunc($q, $rootScope, $location);
@@ -46,6 +62,31 @@ ngApp.config(function($routeProvider, $locationProvider, $httpProvider) {
 
     $httpProvider.interceptors.push('responseObserver');
 });
+
+ngApp.controller('historyController', ['$scope', '$rootScope', '$location', '$route', '$routeParams','$window',
+    function($scope, $rootScope, $location, $route, $routeParams, $window) {
+        //$scope.$state.go("page/home/hai");
+        if(pageHistory.length>0){
+            console.dir(pageHistory);
+            pageHistory.splice(pageHistory.length - 1,1);
+            console.dir(pageHistory);
+            if(pageHistory.length>0) {
+                document.title = pageHistory[pageHistory.length - 1].title;
+                var module = pageHistory[pageHistory.length - 1].path_module;
+                isBackBtn = true;
+                $location.path("/page/" + module + "/" + document.title);
+            }
+            else{
+                isBackBtn=true;
+                $location.path("/page/home/Beranda");
+            }
+        }
+        else{
+            isBackBtn=true;
+            $location.path("/page/home/Beranda");
+        }
+    }
+]);
 
 ngApp.factory('responseObserver', function responseObserver($q, $window) {
     return {
@@ -421,6 +462,14 @@ function admin_repadmin_citizens_ctrl($rootScope, $scope) {
 ngApp.controller('modController', ['$scope', '$rootScope', '$location', '$route', '$routeParams',
     function($scope, $rootScope, $location, $route, $routeParams) {
         reloadIfNotAuth();
+
+        if($routeParams.path_module.indexOf("home")>-1){
+            $rootScope.hideBack=true;
+            pageHistory=[];
+        }
+        else{
+            $rootScope.hideBack=false;
+        }
 
         $rootScope.titleDoc=$routeParams.title;
 //        debugger;
@@ -919,6 +968,7 @@ ngApp.controller('modController', ['$scope', '$rootScope', '$location', '$route'
 
     }
 ]);
+
 
 /* use a function for the exact format desired... */
 function ISODateString(d) {

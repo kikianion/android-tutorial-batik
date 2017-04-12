@@ -31,8 +31,11 @@ $this->load->view('_head');
         <!-- Header Navbar -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
-            <a href="javascript:return false;" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="javascript:return false;" class="sidebar-toggle hidden-xs" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
+            </a>
+            <a id="back-btn-header" href="javascript:window.history.back()" style="float: left; padding: 15px; color: white" class="xhidden-xl xhidden-lg xhidden-md " ng-hide="hideBack">
+                <span class="fa fa-chevron-left"></span>
             </a>
             <!-- Navbar Right Menu -->
             <div class="navbar-custom-menu">
@@ -162,7 +165,7 @@ $this->load->view('_head');
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    <footer class="main-footer">
+    <footer class="main-footer center-navbar">
         <!-- To the right -->
         <div class="pull-right hidden-xs" style="padding: 0px;">
         </div>
