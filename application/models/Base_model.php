@@ -190,7 +190,7 @@ abstract class Base_model extends \CI_Model
         $tableName = get_class($this);
         $this->load->database();
 
-        if (!$this->db->table_exists(get_class($this))) {
+        if (!$this->db->table_exists( strtolower(get_class($this)))) {
             $this->createTable();
         }
 

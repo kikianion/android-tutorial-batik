@@ -2,28 +2,41 @@
     <form enctype="multipart/form-data" style="height:1px;width:1px;" id="<<parent>>-hot-formUploadFile">
         <input type="file" id="<<parent>>-hot-dataImport" style="height:1px;width:1px;" name='dataImport'/>
     </form>
-    <div class="hot-toolbar pull-right">
+    <div class="hot-toolbar pull-right ">
         <div class="form-inline" action="#">
-            <button class="form-control btn btn-default" id="<<parent>>-btn-hot-goto-last"
-                    title='Pergi ke paling bawah'>
-                <span class="glyphicon glyphicon-menu-down"></span>
-            </button>
-            <button name="load" class="btn btn-default form-control" id='<<parent>>-load-htable'
-                    title='Muat ulang data tabel'><span
-                    class="fa fa-refresh" id="<<parent>>-load-htable-icon"></span></button>
-            <button name="excel" class="btn btn-default form-control" id='<<parent>>-import-htable' title='Import Json'><span
-                    class="glyphicon glyphicon-import"></span></button>
-            <button name="excel" class="btn btn-default form-control" id='<<parent>>-export-htable' title='Export data'><span
-                    class="glyphicon glyphicon-export"></span></button>
-
-            <div class="input-group ">
-                <input id="<<parent>>-search_field" type="search" placeholder="Cari" class="form-control "/>
-                <span class="input-group-btn">
-                <button class="btn btn-default form-control" type="button" id="<<parent>>-clear-search"
-                        title='Bersihkan pencarian'>
-                    <span class="glyphicon glyphicon-remove-circle"></span>
-                </button>
-                </span>
+            <div class="row " style="margin-right: 2px">
+                <div class="pull-right " style="display: inline-block;">
+                    <button class="form-control btn btn-default" id="<<parent>>-btn-hot-goto-last"
+                            title='Pergi ke paling bawah'>
+                        <span class="glyphicon glyphicon-menu-down"></span>
+                    </button>
+                </div>
+                <div class="pull-right " style="display: inline-block;">
+                    <button name="load" class="btn btn-default form-control" id='<<parent>>-load-htable'
+                            title='Muat ulang data tabel'><span
+                            class="fa fa-refresh" id="<<parent>>-load-htable-icon"></span></button>
+                </div>
+                <div class="pull-right " style="display: inline-block;">
+                    <button name="excel" class="btn btn-default form-control" id='<<parent>>-import-htable'
+                            title='Import Json'><span
+                            class="glyphicon glyphicon-import"></span></button>
+                </div>
+                <div class="pull-right " style="display: inline-block;">
+                    <button name="excel" class="btn btn-default form-control" id='<<parent>>-export-htable'
+                            title='Export data'><span
+                            class="glyphicon glyphicon-export"></span></button>
+                </div>
+                <div class="pull-right " style="display: inline-block;">
+                    <div class="input-group pull-right ">
+                        <input id="<<parent>>-search_field" type="search" placeholder="Cari" class="form-control "/>
+                        <span class="input-group-btn">
+                        <button class="btn btn-default form-control" type="button" id="<<parent>>-clear-search"
+                                title='Bersihkan pencarian'>
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                        </button>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

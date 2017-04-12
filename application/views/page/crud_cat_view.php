@@ -64,7 +64,7 @@ $pageInfo = array(
                         readOnly: 1,
                     }, ],
                 beforeRemoveRow: function (index, amount) {
-//                    _SELF.hot.on_before_remove_row(index, amount);
+                    _SELF.hot.on_before_remove_row(index, amount);
                     return false;
                 },
                 afterCreateRow: function (index, amount) {
@@ -109,7 +109,7 @@ $pageInfo = array(
                     function (res) {
                         var data = [],
                                 row;
-                        res.data = hotDataSortBy(res.data, "name");
+                        res.data = hotDataSortBy(res.data, "id");
 
                         for (var i = 0, ilen = res.data.length; i < ilen; i++) {
                             row = [];

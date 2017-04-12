@@ -357,7 +357,7 @@ var htmlRenderer1 = function(instance, td, row, col, prop, value, cellProperties
 
     if (col == 0) {
         if (cellProperties.processing) {
-            td.innerHTML = "<img src='_images/loading-small.gif'>";
+            td.innerHTML = "<img src='assets/images/loading-small.gif'>";
         } else if (cellProperties.maskId) {
             if (!isNaN(parseInt(value))) td.innerHTML = "<i class='fa fa-save'></i>";
         }
