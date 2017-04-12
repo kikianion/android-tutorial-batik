@@ -22,7 +22,7 @@
             <a class="btn btn-primary btn-block" href="#/page/about/Tentang Aplikasi">Tentang Batik Lamongan</a>
         </div>
         <div style="padding-top: 5px; padding-bottom: 5px">
-            <button class="btn btn-primary btn-block">Exit</button>
+            <a class="btn btn-primary btn-block" href="quit:x">Exit</a>
         </div>
     </div>
 
